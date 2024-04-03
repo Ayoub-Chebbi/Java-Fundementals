@@ -1,6 +1,7 @@
 package com.example.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,17 @@ public class BurgerService {
 	
 	public Buger createBurger(Buger buger) {
 		return burgerRepo.save(buger);
+	}
+	
+	public Buger findBurger(Long id) {
+		Optional<Buger> optionalBurger = burgerRepo.findById(id);
+		if(optionalBurger.isPresent()) {
+			return optionalBurger.get();
+		}
+		return null;
+	}
+	
+	public Buger updateBurger(Buger burger) {
+		return burgerRepo.save(burger);
 	}
 }
