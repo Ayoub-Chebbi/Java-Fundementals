@@ -35,7 +35,6 @@ public class MainController {
 	
 	@GetMapping("/dojos/{id}")
 	public String showDojo(@PathVariable("id") Long id, Model model) {
-		System.out.printf("dojo id from url: %s",id);
 		Dojo dojo = dojos.find(id);
 		model.addAttribute("dojo", dojo);
 		
